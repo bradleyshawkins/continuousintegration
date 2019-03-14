@@ -1,0 +1,10 @@
+version: '1.0'
+steps:
+  build_image:
+    type: build
+    description: Building service
+    image-name: bradleyshawkins/continuousintegration
+  push_image:
+    type: push
+    candidate: ${{build_image}}
+    tag: ${{CF_SHORT_REVISION}}
